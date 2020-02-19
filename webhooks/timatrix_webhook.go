@@ -19,7 +19,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	productv1alpha1 "github.com/fyuan1316/testcluster/api/v1alpha1"
+	productv1alpha1 "github.com/fyuan1316/test-cluster/api/v1alpha1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"net/http"

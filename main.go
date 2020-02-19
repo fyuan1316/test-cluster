@@ -17,9 +17,9 @@ package main
 
 import (
 	"flag"
-	installv1alpha1 "github.com/fyuan1316/testcluster/api/v1alpha1"
-	"github.com/fyuan1316/testcluster/controllers"
-	"github.com/fyuan1316/testcluster/webhooks"
+	installv1alpha1 "github.com/fyuan1316/test-cluster/api/v1alpha1"
+	"github.com/fyuan1316/test-cluster/controllers"
+	"github.com/fyuan1316/test-cluster/webhooks"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
@@ -53,7 +53,7 @@ func main() {
 	ctrl.SetLogger(zap.New(func(o *zap.Options) {
 		o.Development = true
 	}))
-	hookServerCertDir := "/Users/max/cert"
+	hookServerCertDir := GetEnv("CertDir","/tmp/k8s-webhook-server/serving-certs") //"/Users/max/cert"
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 		Scheme:             scheme,
 		MetricsBindAddress: metricsAddr,
@@ -102,4 +102,11 @@ func main() {
 		setupLog.Error(err, "problem running manager")
 		os.Exit(1)
 	}
+}
+
+func GetEnv(key, defaultValue string) string {
+	if v := os.Getenv(key); v != "" {
+		return v
+	}
+	return defaultValue
 }

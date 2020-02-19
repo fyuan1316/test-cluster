@@ -1,4 +1,4 @@
-module github.com/fyuan1316/testcluster
+module github.com/fyuan1316/test-cluster
 
 go 1.13
 

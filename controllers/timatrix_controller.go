@@ -23,7 +23,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	productv1alpha1 "github.com/fyuan1316/testcluster/api/v1alpha1"
+	productv1alpha1 "github.com/fyuan1316/test-cluster/api/v1alpha1"
 )
 
 // TiMatrixReconciler reconciles a TiMatrix object
