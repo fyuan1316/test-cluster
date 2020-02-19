@@ -1,0 +1,84 @@
+
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: mutating-webhook-configuration
+webhooks:
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-product-alauda-io-v1alpha1-timatrix
+  failurePolicy: Fail
+  name: mtmprovision.test.io
+  rules:
+  - apiGroups:
+    - product.alauda.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    resources:
+    - timatrixes
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: webhook-service
+      namespace: system
+      path: /mutate-product-alauda-io-v1alpha1-timatrix
+  failurePolicy: Fail
+  name: mtmprovision.test.io
+  rules:
+  - apiGroups:
+    - product.alauda.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    resources:
+    - timatrixes
+
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: validating-webhook-configuration
+webhooks:
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-product-alauda-io-v1alpha1-timatrix
+  failurePolicy: Fail
+  name: vtmprovision.test.io
+  rules:
+  - apiGroups:
+    - product.alauda.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    resources:
+    - timatrixes
+- clientConfig:
+    caBundle: Cg==
+    service:
+      name: webhook-service
+      namespace: system
+      path: /validate-product-alauda-io-v1alpha1-timatrix
+  failurePolicy: Fail
+  name: vtmprovision.test.io
+  rules:
+  - apiGroups:
+    - product.alauda.io
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    resources:
+    - timatrixes

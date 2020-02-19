@@ -1,0 +1,26 @@
+# permissions to do edit timatrixes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: timatrix-editor-role
+rules:
+- apiGroups:
+  - product.alauda.io
+  resources:
+  - timatrixes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - product.alauda.io
+  resources:
+  - timatrixes/status
+  verbs:
+  - get
+  - patch
+  - update
