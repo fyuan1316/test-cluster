@@ -53,7 +53,7 @@ func main() {
 	ctrl.SetLogger(zap.New(func(o *zap.Options) {
 		o.Development = true
 	}))
-	hookServerCertDir := GetEnv("CertDir","/tmp/k8s-webhook-server/serving-certs") //"/Users/max/cert"
+	hookServerCertDir := GetEnv("CertDir", "/tmp/k8s-webhook-server/serving-certs") //"/Users/max/cert"
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 		Scheme:             scheme,
 		MetricsBindAddress: metricsAddr,

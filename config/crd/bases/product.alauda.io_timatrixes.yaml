@@ -3,8 +3,6 @@
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
-  annotations:
-    controller-gen.kubebuilder.io/version: v0.2.4
   creationTimestamp: null
   name: timatrixes.product.alauda.io
 spec:
@@ -41,6 +39,14 @@ spec:
           type: object
         status:
           description: TiMatrixStatus defines the observed state of TiMatrix
+          properties:
+            deletable:
+              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                of cluster Important: Run "make" to regenerate code after modifying
+                this file'
+              type: boolean
+          required:
+          - deletable
           type: object
       type: object
   version: v1alpha1

@@ -35,6 +35,7 @@ type TiMatrixSpec struct {
 type TiMatrixStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	Deletable *bool `json:"deletable"`
 }
 
 // +kubebuilder:object:root=true

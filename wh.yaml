@@ -272,7 +272,8 @@ spec:
         - --upstream=http://127.0.0.1:8080/
         - --logtostderr=true
         - --v=10
-        image: gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1
+        image: harbor-b.alauda.cn/aml/kube-rbac-proxy:v0.4.1
+        imagePullPolicy: IfNotPresent
         name: kube-rbac-proxy
         ports:
         - containerPort: 8443
@@ -283,6 +284,7 @@ spec:
         command:
         - /manager
         image: harbor-b.alauda.cn/aml/test-cluster:latest
+        imagePullPolicy: Always
         name: manager
         ports:
         - containerPort: 9443

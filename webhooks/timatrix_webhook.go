@@ -58,6 +58,8 @@ func (a *MutatingWebHook) Handle(ctx context.Context, req admission.Request) adm
 		return admission.Errored(http.StatusBadRequest, err)
 	}
 	ti.Spec.Foo = "changed"
+	allowedDeletable := true
+	ti.Status.Deletable = &allowedDeletable
 	marshaledPod, err := json.Marshal(ti)
 	if err != nil {
 		return admission.Errored(http.StatusInternalServerError, err)
